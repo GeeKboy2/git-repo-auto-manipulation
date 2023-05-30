@@ -29,11 +29,7 @@ while getopts ":h|g|n" option; do
          help
          ;;
       g)
-         echo "admin.sh" >> .gitignore ; 
-         ignored=$(cat .gitignore | uniq -u); 
-         echo "$ignored" > .gitignore
-
-         git checkout --orphan TEMP_BRANCH ; git add -A ; git rm --cached ./admin.sh ; git commit -m "Initial commit" ; git branch -D main ; git branch -m main ; git push --set-upstream  -f origin main ; cp ~/Desktop/projects/git-repo-auto-manipulation/admin.sh .
+         git checkout --orphan TEMP_BRANCH ; git add -A ; git commit -m "Initial commit" ; git branch -D main ; git branch -m main ; git push --set-upstream  -f origin main ; cp ~/Desktop/projects/git-repo-auto-manipulation/admin.sh .
          echo "## == Successfully Cleaned Git Commit History == ##"
          echo
          ;;
@@ -42,9 +38,9 @@ while getopts ":h|g|n" option; do
          echo
          echo "## == Successfully changed the name of user.name == ##"
          echo
-         ;;
+
    esac
 done
 
 help
-exit 0
+exit
